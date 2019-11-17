@@ -1,0 +1,33 @@
+header {
+  min-height: 10vh;
+}
+
+.footer-container{
+  min-height: 10vh;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+
+}
+.footer-container > p{
+  text-align: center;
+  color:white;
+  margin: auto;
+}
+
+main {
+  height: 80vh;
+}
+.header-container {
+  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo > img {
+  margin:  10px 30px;
+  padding: 5px;
+  border: 5px solid orange;
+  border-radius: 10px;
+  height: 50px;
+}
