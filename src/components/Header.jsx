@@ -11,7 +11,7 @@ export const Header = () => (
             </div>
             <nav className="nav">
                 <Menu mode="horizontal" >
-                    <Menu.Item key="films" className="menuItem">
+                    <Menu.Item key="films" className="filmMenuItem">
                         <Icon type="global" />
                         Navigation One
                     </Menu.Item>
@@ -25,7 +25,9 @@ export const Header = () => (
                     </Menu.Item>
                 </Menu>
             </nav>
-            <div className="user">user</div>
+            <div className="user">
+            <Icon type="user"  />
+            </div>
         </div>
     </header>
 );
