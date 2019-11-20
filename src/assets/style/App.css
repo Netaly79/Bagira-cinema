@@ -1,22 +1,6 @@
+/* HEADER*/
 header {
   min-height: 10vh;
-}
-
-.footer-container{
-  min-height: 10vh;
-  background-color: grey;
-  display: flex;
-  align-items: center;
-
-}
-.footer-container > p{
-  text-align: center;
-  color:black;
-  margin: auto;
-}
-
-main {
-  height: 80vh;
 }
 .header-container {
   background-color: grey;
@@ -48,4 +32,40 @@ main {
   font-size: 24px;
   color:orange;
   padding-right: 30px;
+}
+
+/* MAIN*/
+main {
+  height: 80vh;
+}
+.library{
+  display:flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  
+}
+.sidebar{
+  flex-basis: 15%;
+  flex-shrink: 0;
+  background-color: rgb(231, 224, 223);
+ 
+}
+.films{
+  
+  flex-grow: 1;
+  background-color: rgb(247, 247, 247);
+}
+
+/* FOOTER*/
+.footer-container{
+  min-height: 10vh;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+
+}
+.footer-container > p{
+  text-align: center;
+  color:black;
+  margin: auto;
 }
