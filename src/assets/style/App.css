@@ -3,20 +3,20 @@ header {
   min-height: 10vh;
 }
 .header-container {
-  background-color: grey;
+  background-color:rgb(221, 240, 200);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .logo > img {
-  margin:  10px 30px;
+  margin:  10px 50px;
   padding: 5px;
   border: 5px solid orange;
   border-radius: 10px;
   height: 50px;
 }
 .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
-  background-color: #ff9100;
+  background-color: #f5e1bd;
   color: black;
   border-bottom: 2px solid orange;
 }
@@ -30,7 +30,6 @@ header {
 }
 .anticon-user{
   font-size: 24px;
-  color:orange;
   padding-right: 30px;
 }
 
@@ -47,7 +46,7 @@ main {
 .sidebar{
   flex-basis: 15%;
   flex-shrink: 0;
-  background-color: rgb(231, 224, 223);
+  background-color: rgb(232, 241, 221);
  
 }
 .films{
@@ -59,7 +58,7 @@ main {
 /* FOOTER*/
 .footer-container{
   min-height: 10vh;
-  background-color: grey;
+  background-color:rgb(221, 240, 200);
   display: flex;
   align-items: center;
 
