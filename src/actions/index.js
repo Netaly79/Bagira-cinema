@@ -1,13 +1,32 @@
 import axios from 'axios';
-import { URL_MOVIES }  from '../constants';
+import { URL_MOVIE, SET_MOVIES, IS_LOADING, LOADING_ERROR}  from '../constants';
 
+
+export const isLoading = () => ({
+    type: IS_LOADING, 
+
+});
+
+export const loadingError = () =>({
+    type: LOADING_ERROR
+});
+export const setMovies = ( movies) =>({
+ type: SET_MOVIES, payload: movies
+});
 
 export const getMovies = () =>{
-    return dispatch => {
-        axios.get(URL_MOVIES)
-        .then (({data}) => console.log("data:",data))
-        .catch ((error) =>console.error(console.error()));
-       
+    return (dispatch) => {
+        dispatch(isLoading());
+        console.log(11);
+        axios.get(URL_MOVIE)
+        .then (({data}) => {
+            console.log(data);
+            dispatch(setMovies(data.movie));
+        })
+        .catch ((error) => {
+            console.log(error);
+            dispatch(loadingError());
+        }) 
+        }
         
-    };
-} 
+    }

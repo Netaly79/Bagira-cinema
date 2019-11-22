@@ -1,5 +1,9 @@
-const InitialValues = {
-    movies: [],
-};
+import {combineReducers } from 'redux';
 
-export const BaseReducer = (state=InitialValues,action) =>{};
+import {Load} from "./load";
+import {MovieReducer} from "./movie";
+
+export const BaseReducer = combineReducers({
+    loading:Load,
+    data:MovieReducer
+});
