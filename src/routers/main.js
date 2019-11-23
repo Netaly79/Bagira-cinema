@@ -5,6 +5,7 @@ import { LibraryLayout } from '../containers/LibraryLayout';
 import {Route, Switch} from 'react-router-dom';
 import { getMovies } from "../actions";
 import { LibraryContent} from "../components/LibraryContent";
+import {SingleMovieContainer,AllMovieContainer} from "../containers"
 
  class Main extends React.Component{
 
@@ -17,8 +18,8 @@ import { LibraryContent} from "../components/LibraryContent";
             <main>
                 <LibraryLayout> 
                 <Switch>
-                    <Route path="/" exact component={LibraryContent}/>
-                    <Route path="/movies/:id" />
+                    <Route path="/" component={AllMovieContainer} exact />
+                    <Route path="/movie/:id" component={SingleMovieContainer}/>
                 </Switch> 
                 </LibraryLayout> 
             </main>
