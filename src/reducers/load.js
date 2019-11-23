@@ -8,13 +8,13 @@ export const Load= (state=InitialValues,action) =>{
     switch (action.type){
         case "IS_LOADING":
             return {
-                ... state,
+                ...state,
                 loading:true
         };
         case "SET_MOVIES":
         case "LOADING_ERROR":
                 return {
-                    ... state,
+                    ...state,
                     loading:false,
             };
         default:

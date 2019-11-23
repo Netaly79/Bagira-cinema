@@ -1,7 +1,8 @@
 import React from 'react';
+import { AllMovieContainer } from '../containers/AllMovieContainer'
 
 export const LibraryContent = () => (
-    <div className="films">
-        many films for you
-    </div>
+    
+        <AllMovieContainer />
+    
 )

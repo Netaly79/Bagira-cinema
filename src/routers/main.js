@@ -4,6 +4,7 @@ import { connect}  from 'react-redux';
 import { LibraryLayout } from '../containers/LibraryLayout';
 import {Route, Switch} from 'react-router-dom';
 import { getMovies } from "../actions";
+import { LibraryContent} from "../components/LibraryContent";
 
  class Main extends React.Component{
 
@@ -14,11 +15,12 @@ import { getMovies } from "../actions";
     render (){
         return (
             <main>
-                <LibraryLayout /> 
+                <LibraryLayout> 
                 <Switch>
-                    <Route path="/" exact />
+                    <Route path="/" exact component={LibraryContent}/>
                     <Route path="/movies/:id" />
                 </Switch> 
+                </LibraryLayout> 
             </main>
         );
     }

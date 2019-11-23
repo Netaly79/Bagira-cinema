@@ -11,7 +11,7 @@ export const Header = () => (
             </div>
             <nav className="nav">
                 <Menu mode="horizontal" >
-                    <Menu.Item key="films" className="filmMenuItem">
+                    <Menu.Item key="films" className="filmMenuItem  ant-menu-item-selected">
                         <Icon type="global" />
                         Navigation One
                     </Menu.Item>

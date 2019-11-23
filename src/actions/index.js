@@ -17,10 +17,8 @@ export const setMovies = ( movies) =>({
 export const getMovies = () =>{
     return (dispatch) => {
         dispatch(isLoading());
-        console.log(11);
         axios.get(URL_MOVIE)
         .then (({data}) => {
-            console.log(data);
             dispatch(setMovies(data.movie));
         })
         .catch ((error) => {
