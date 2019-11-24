@@ -4,9 +4,9 @@ import {SingleMovieContainer} from '../containers';
 
 export const LibraryContent = () => (
        
-
-        <AllMovieContainer />
-
+<div>
+         <AllMovieContainer />
+        </div>
   
       
 )

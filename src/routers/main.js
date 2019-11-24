@@ -18,8 +18,8 @@ import {SingleMovieContainer,AllMovieContainer} from "../containers"
             <main>
                 <LibraryLayout> 
                 <Switch>
-                    <Route path="/" component={AllMovieContainer} exact />
-                    <Route path="/movie/:id" component={SingleMovieContainer}/>
+                    <Route path="/" component={AllMovieContainer} exact /> 
+                    <Route path="/movie/:id" component={SingleMovieContainer} />
                 </Switch> 
                 </LibraryLayout> 
             </main>
