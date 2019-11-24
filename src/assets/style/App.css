@@ -73,6 +73,11 @@ header {
   font-size: 18px;
   margin-top: 5px;
 }
+.bigdiv{
+  background-color: #ff9100;
+  width:200px;
+  height: 200px;
+}
 /* FOOTER*/
 .footer-container{
   min-height: 10vh;

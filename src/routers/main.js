@@ -16,12 +16,8 @@ import {SingleMovieContainer,AllMovieContainer} from "../containers"
     render (){
         return (
             <main>
-                <LibraryLayout> 
-                <Switch>
-                    <Route path="/" component={AllMovieContainer} exact /> 
-                    <Route path="/movie/:id" component={SingleMovieContainer} />
-                </Switch> 
-                </LibraryLayout> 
+                 <LibraryLayout> 
+                 </LibraryLayout>
             </main>
         );
     }
