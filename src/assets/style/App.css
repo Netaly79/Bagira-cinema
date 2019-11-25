@@ -67,16 +67,37 @@ header {
   height: 85%;
   object-fit: fill;
 }
+.movie-poster-small {
+  width: 80%;
+  object-fit: fill;
+  margin:auto;
+}
 .movie-title{
   font-weight: bold;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 5px;
 }
 .bigdiv{
   background-color: #ff9100;
   width:200px;
   height: 200px;
+}
+.singleMovieContainer{
+  display:flex;
+  justify-content: space-between ;
+}
+.pictureBox{
+  flex-basis: 20%;
+  flex-shrink: 0;
+  margin:20px;
+}
+.descriptionBox{
+  flex-grow: 1;
+  margin:20px;
+}
+.MovieDescription{
+  font-size: 16px;
 }
 /* FOOTER*/
 .footer-container{

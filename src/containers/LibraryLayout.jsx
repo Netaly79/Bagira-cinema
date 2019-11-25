@@ -10,8 +10,8 @@ export const LibraryLayout = () => (
         <LibrarySidebar />
         {/* <LibraryContent /> */}
         <Switch>
-            <Route path="/" component={AllMovieContainer} exact />
-            <Route path="/movie/:id" component={SingleMovieContainer} />
+                    <Route path="/" component={AllMovieContainer} exact />
+                    <Route path="/movie/:id" component={SingleMovieContainer} />
         </Switch> 
     </div>
 )

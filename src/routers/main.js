@@ -14,10 +14,13 @@ import {SingleMovieContainer,AllMovieContainer} from "../containers"
     }
 
     render (){
+        const {loading} = this.props;
+        console.log(this.props);
+        
         return (
             <main>
-                 <LibraryLayout> 
-                 </LibraryLayout>
+                {!loading&& <LibraryLayout />}
+                 
             </main>
         );
     }
@@ -28,4 +31,8 @@ const mapDispatchToProps= {
     getMovies
 };
 
-export const MainContainer = connect (null, mapDispatchToProps)(Main);
+const mapStateToProps = (state) => ({
+    loading:state.loading.loading
+});
+
+export const MainContainer = connect (mapStateToProps, mapDispatchToProps)(Main);
