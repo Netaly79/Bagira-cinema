@@ -68,15 +68,16 @@ header {
   object-fit: fill;
 }
 .movie-poster-small {
-  width: 80%;
+  width: 100%;
   object-fit: fill;
   margin:auto;
+  box-shadow: 0 0 8px 1px rgba(28, 39, 16, 0.7);
 }
 .movie-title{
   font-weight: bold;
   text-align: center;
   font-size: 20px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 .bigdiv{
   background-color: #ff9100;
@@ -92,12 +93,50 @@ header {
   flex-shrink: 0;
   margin:20px;
 }
+.pictureBox > p {
+  margin-top: 1em;
+  text-align: center;
+  width:100%;
+}
+.ticket{
+  text-align: center;
+}
+.buyTicket {
+  border-bottom: 2px solid orange;
+  margin: 10px auto;
+  height: 60px;
+  width: 105px;
+  background-image: url("../images/ticket.jpg") ;
+}
+.buyTicket:hover{
+  border: 2px solid orange;
+  color:black;
+  background-color: #ffffff;
+}
 .descriptionBox{
-  flex-grow: 1;
+flex-grow: 1;
   margin:20px;
 }
 .MovieDescription{
   font-size: 16px;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+hr{
+  color: rgb(221, 240, 200);
+  height: 1px;
+  margin: 0 60px;
+  margin-bottom: 30px;
+}
+.info {
+  font-style: italic;
+}
+.info > span{
+  font-weight: bold;
+}
+.trailer{
+  width:100%;
+  margin: 0 auto;
 }
 /* FOOTER*/
 .footer-container{
