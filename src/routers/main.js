@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect}  from 'react-redux';
+import { Spin, Icon } from 'antd';
 
 import { LibraryLayout } from '../containers/LibraryLayout';
-import {Route, Switch} from 'react-router-dom';
+//import {Route, Switch} from 'react-router-dom';
 import { getMovies } from "../actions";
-import { LibraryContent} from "../components/LibraryContent";
-import {SingleMovieContainer,AllMovieContainer} from "../containers"
+//import { LibraryContent} from "../components/LibraryContent";
+//import {SingleMovieContainer,AllMovieContainer} from "../containers"
 
  class Main extends React.Component{
 
@@ -19,7 +20,9 @@ import {SingleMovieContainer,AllMovieContainer} from "../containers"
         
         return (
             <main>
-                {!loading&& <LibraryLayout />}
+                {loading
+                ? <Spin indicator={<Icon type="loading-3-quarters" style={{ fontSize: 36 }} spin />} />
+                : <LibraryLayout />}
                  
             </main>
         );

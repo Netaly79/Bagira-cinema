@@ -1,27 +1,26 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
+import {Link,NavLink} from 'react-router-dom';
 
 import logo from '../assets/images/logo.png';
 
 export const Header = () => (
     <header>
         <div className="header-container">
-            <div className="logo">
+            <Link to="/" className="logo">
                 <img src={logo} alt ='logo'/>
-            </div>
+            </Link>
             <nav className="nav">
                 <Menu mode="horizontal" >
-                    <Menu.Item key="films" className="filmMenuItem  ant-menu-item-selected">
-                        <Icon type="global" />
-                        Navigation One
+                    <Menu.Item key="films" className="filmMenuItem">
+                        <NavLink to="/" activeClassName="active"> <Icon type="global" />Фильмы</NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="schedule">
+                        <NavLink to="/schedule" activeClassName="active"><Icon type="schedule" />Расписание</NavLink>
                     </Menu.Item>
                     <Menu.Item key="about">
                         <Icon type="eye" />
                         Navigation Two
-                    </Menu.Item>
-                    <Menu.Item key="schedule">
-                        <Icon type="schedule" />
-                        Navigation Three
                     </Menu.Item>
                 </Menu>
             </nav>

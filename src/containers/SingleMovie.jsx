@@ -15,7 +15,7 @@ class SingleMovie extends React.Component{
     render (){
         console.log ("movie-", this.state);
         const {movie} =this.state;
-        const actors = Boolean(movie.actors) && movie.actors.join (', ').slice (0,-2);
+        const actors = movie.actors ? movie.actors.join (', ').slice (0,-2) : "Хью Джекман и Ко";
         const country = movie.country && movie.country.join(", ");
         const age = movie.age ? movie.age+"+" : "не ограничен";
         return (

@@ -15,7 +15,8 @@ header {
   border-radius: 10px;
   height: 50px;
 }
-.ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
+.ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected,
+.ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected > a {
   background-color: #f5e1bd;
   color: black;
   border-bottom: 2px solid orange;
@@ -28,9 +29,22 @@ header {
   color: #ff9100;
   border-bottom: 2px solid orange;
 }
+.ant-menu-horizontal > .ant-menu-item > a:hover{
+  color: #ff9100;
+}
 .anticon-user{
   font-size: 24px;
   padding-right: 30px;
+}
+.ant-spin{
+  position:absolute;
+  top:45%;
+  left:49%;
+  color:orange;
+}
+.ant-menu-horizontal > .ant-menu-item-selected > a
+{
+  color:black;
 }
 
 /* MAIN*/
@@ -45,7 +59,7 @@ header {
   flex-basis: 15%;
   flex-shrink: 0;
   background-color: rgb(232, 241, 221);
- 
+  min-height: 80vh;
 }
 .films{
   
@@ -107,6 +121,7 @@ header {
   height: 60px;
   width: 105px;
   background-image: url("../images/ticket.jpg") ;
+  cursor: pointer;
 }
 .buyTicket:hover{
   border: 2px solid orange;
