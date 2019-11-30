@@ -22,6 +22,7 @@ export const  AllMovie =({movies,filteredMovies,filtered}) => {
 
 const mapStateToProps = (state) => ({
     movies:state.data.movies,
+    genres:state.data.genres,
     filteredMovies:state.filter.filteredMovies,
     filtered:state.filter.filtered
 });

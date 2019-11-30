@@ -161,20 +161,29 @@ hr{
   margin: 0 auto;
 }
 /* FILTERS */
-.filterToTitle{
+.filterToTitle,
+.filterToGenre{
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.titleFilterLabel{
+.FilterLabel{
   font-weight: bold;
   margin:40px auto 20px;
   font-size: 20px;
 }
-.titleFilter{
+.Filter,
+.ant-select{
   margin:0 15px;
   font-size: 20px;
   border: 1px dotted orange;
+}
+.ant-select-selection{
+  border:none;
+}
+.ant-select-dropdown-menu-item:hover:not(.ant-select-dropdown-menu-item-disabled){
+background-color:rgb(232, 241, 221) ;
+color:#ff9100;
 }
 /* FOOTER*/
 .footer-container{
