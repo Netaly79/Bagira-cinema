@@ -5,6 +5,7 @@ class SingleMovie extends React.Component{
     state= {movie:{}};
 
     componentDidMount(){
+        
         const {match,movies} = this.props;
         const movieId=match.params.id;
         const movie=movies.find(item => item._id===movieId);

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL_MOVIE, SET_MOVIES, IS_LOADING, LOADING_ERROR}  from '../constants';
+import { URL_MOVIE, SET_MOVIES, IS_LOADING, LOADING_ERROR, SET_FILTERED_MOVIES}  from '../constants';
 
 
 export const isLoading = () => ({
@@ -25,6 +25,9 @@ export const getMovies = () =>{
             console.log(error);
             dispatch(loadingError());
         }) 
-        }
+     }
         
-    }
+}
+export const setFilteredMovies = ( filteredMovies, filtered) =>({
+    type: SET_FILTERED_MOVIES, payload: filteredMovies, filtered:filtered
+   });

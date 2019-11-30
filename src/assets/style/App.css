@@ -15,11 +15,15 @@ header {
   border-radius: 10px;
   height: 50px;
 }
+.ant-menu{
+  font-size: 20px;
+}
 .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected,
 .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected > a {
   background-color: #f5e1bd;
   color: black;
   border-bottom: 2px solid orange;
+  font-size: 20px;
 }
 
 .ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover,
@@ -28,9 +32,11 @@ header {
 {
   color: #ff9100;
   border-bottom: 2px solid orange;
+  font-size: 20px;
 }
 .ant-menu-horizontal > .ant-menu-item > a:hover{
   color: #ff9100;
+  font-size: 20px;
 }
 .anticon-user{
   font-size: 24px;
@@ -45,6 +51,7 @@ header {
 .ant-menu-horizontal > .ant-menu-item-selected > a
 {
   color:black;
+  font-size: 20px;
 }
 
 /* MAIN*/
@@ -56,7 +63,7 @@ header {
   
 }
 .sidebar{
-  flex-basis: 15%;
+  flex-basis: 25%;
   flex-shrink: 0;
   background-color: rgb(232, 241, 221);
   min-height: 80vh;
@@ -152,6 +159,22 @@ hr{
 .trailer{
   width:100%;
   margin: 0 auto;
+}
+/* FILTERS */
+.filterToTitle{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.titleFilterLabel{
+  font-weight: bold;
+  margin:40px auto 20px;
+  font-size: 20px;
+}
+.titleFilter{
+  margin:0 15px;
+  font-size: 20px;
+  border: 1px dotted orange;
 }
 /* FOOTER*/
 .footer-container{

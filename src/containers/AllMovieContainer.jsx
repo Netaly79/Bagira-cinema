@@ -6,11 +6,14 @@ import {connect} from 'react-redux';
 import { MovieItem} from "../components/MovieItem";
 
 
-export const  AllMovie =({movies}) => {
-    console.log (movies);
+export const  AllMovie =({movies,filteredMovies,filtered}) => {
+    const renderMovies=(filteredMovies.length||filtered)
+    ?filteredMovies
+    : movies;
+
     return (
         <div  className="films">
-            {movies.map(item =>
+            {renderMovies.map(item =>
             <MovieItem key={item._id} movie={item} />
             )}
         </div>
@@ -18,7 +21,9 @@ export const  AllMovie =({movies}) => {
 };
 
 const mapStateToProps = (state) => ({
-    movies:state.data.movies
+    movies:state.data.movies,
+    filteredMovies:state.filter.filteredMovies,
+    filtered:state.filter.filtered
 });
 
 export const AllMovieContainer = connect(mapStateToProps)(AllMovie);
