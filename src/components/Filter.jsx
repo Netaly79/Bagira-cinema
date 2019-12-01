@@ -15,30 +15,77 @@ class Filter extends React.Component{
     changeInputValue = (event) => {
         
         const {value}=event.target;
+        const {movies}=this.props;
         inputValue=value;
-        console.log ('props',this.props);
-        let filteredMovies=
-            this.props.movies.filter (item => (
-            item.title.toLowerCase().includes(inputValue.toLowerCase()
-            ))
-        );
+        //console.log('новая-'+selectValue+"  "+inputValue+movies);
        
-        const filtered=Boolean(value.length);
+        let filteredMovies=[];
+        for (let i=0; i<movies.length; i++){
+            if (inputValue.length>0&&selectValue.length>1)
+            {
+                //console.log("input+select"+selectValue);
+                if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase())
+                 && movies[i].genre.some(element => element.trim() === selectValue))
+                
+                   filteredMovies.push(movies[i]);
+            }
+            if (inputValue.length>0&&selectValue.length<1)
+            {
+                //console.log("only input");
+                if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase()))
+                    filteredMovies.push(movies[i]);
+            }
+            if (!inputValue&&selectValue.length>1)
+            {
+                //console.log("only select");
+                if(movies[i].genre.some(element => element.trim() === selectValue))
+                    filteredMovies.push(movies[i]);
+            }
+        }
+        
+        //console.log("filtered-"+filteredMovies);
+        const filtered=Boolean(inputValue||selectValue);
 
         this.props.setFilteredMovies(filteredMovies,filtered);
     
     }
      changeSelectValue=(value) =>{
     
-        console.log (value);
+        //console.log (value);
+        if(value!=="")
         selectValue=value;
-        const filteredSelectMovies=this.props.movies.filter (item => (
-            item.genre.some(element => element.trim() === value)
-            )
-            );
-        const filtered=Boolean(filteredSelectMovies.length);
-        console.log (filteredSelectMovies);
-        this.props.setFilteredMovies(filteredSelectMovies,filtered);
+        else
+        selectValue='';
+        const {movies}=this.props;
+
+        let filteredMovies=[];
+        for (let i=0; i<movies.length; i++){
+            if (inputValue.length>0&&selectValue.length>1)
+            {
+                //console.log("input+select"+selectValue);
+                if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase())
+                 && movies[i].genre.some(element => element.trim() === selectValue))
+                
+                   filteredMovies.push(movies[i]);
+            }
+            if (inputValue.length>0&&selectValue.length<1)
+            {
+                //console.log("only input");
+                if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase()))
+                    filteredMovies.push(movies[i]);
+            }
+            if (inputValue.length<1&&selectValue.length>1)
+            {
+                //console.log("only select");
+                if(movies[i].genre.some(element => element.trim() === selectValue))
+                    filteredMovies.push(movies[i]);
+            }
+        }
+        
+        //console.log("filtered-"+filteredMovies);
+        const filtered=Boolean(inputValue||selectValue);
+
+        this.props.setFilteredMovies(filteredMovies,filtered);
       }
     render (){
         
