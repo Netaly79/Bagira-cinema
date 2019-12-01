@@ -16,7 +16,6 @@ import { getMovies } from "../actions";
 
     render (){
         const {loading} = this.props;
-        console.log(this.props);
         
         return (
             <main>

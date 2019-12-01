@@ -18,10 +18,13 @@ class Filter extends React.Component{
         const {movies}=this.props;
         inputValue=value;
         //console.log('новая-'+selectValue+"  "+inputValue+movies);
+        const twoFilters=inputValue.length>0&&selectValue.length>1;
+        const onlyInput=inputValue.length>0&&selectValue.length<1;
+        const onlySelect=inputValue.length<1&&selectValue.length>1;
        
         let filteredMovies=[];
         for (let i=0; i<movies.length; i++){
-            if (inputValue.length>0&&selectValue.length>1)
+            if (twoFilters)
             {
                 //console.log("input+select"+selectValue);
                 if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase())
@@ -29,13 +32,13 @@ class Filter extends React.Component{
                 
                    filteredMovies.push(movies[i]);
             }
-            if (inputValue.length>0&&selectValue.length<1)
+            if (onlyInput)
             {
                 //console.log("only input");
                 if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase()))
                     filteredMovies.push(movies[i]);
             }
-            if (!inputValue&&selectValue.length>1)
+            if (onlySelect)
             {
                 //console.log("only select");
                 if(movies[i].genre.some(element => element.trim() === selectValue))
@@ -57,24 +60,26 @@ class Filter extends React.Component{
         else
         selectValue='';
         const {movies}=this.props;
+        const twoFilters=inputValue.length>0&&selectValue.length>1;
+        const onlyInput=inputValue.length>0&&selectValue.length<1;
+        const onlySelect=inputValue.length<1&&selectValue.length>1;
 
         let filteredMovies=[];
         for (let i=0; i<movies.length; i++){
-            if (inputValue.length>0&&selectValue.length>1)
+            if (twoFilters)
             {
                 //console.log("input+select"+selectValue);
                 if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase())
                  && movies[i].genre.some(element => element.trim() === selectValue))
-                
-                   filteredMovies.push(movies[i]);
+                    filteredMovies.push(movies[i]);
             }
-            if (inputValue.length>0&&selectValue.length<1)
+            if (onlyInput)
             {
                 //console.log("only input");
                 if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase()))
                     filteredMovies.push(movies[i]);
             }
-            if (inputValue.length<1&&selectValue.length>1)
+            if (onlySelect)
             {
                 //console.log("only select");
                 if(movies[i].genre.some(element => element.trim() === selectValue))
@@ -83,8 +88,7 @@ class Filter extends React.Component{
         }
         
         //console.log("filtered-"+filteredMovies);
-        const filtered=Boolean(inputValue||selectValue);
-
+        const filtered=Boolean(inputValue||selectValue)
         this.props.setFilteredMovies(filteredMovies,filtered);
       }
     render (){

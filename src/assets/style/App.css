@@ -5,7 +5,7 @@ header {
 .header-container {
   background-color:rgb(221, 240, 200);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 .logo > img {

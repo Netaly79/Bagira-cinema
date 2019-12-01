@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 
 import { LibrarySidebar } from '../components/LibrarySidebar';
 
-import {SingleMovieContainer,AllMovieContainer} from "../containers"
+import {SingleMovieContainer,AllMovieContainer,ScheduleContainer} from "../containers"
 
 export const LibraryLayout = () => (
     
@@ -12,6 +12,7 @@ export const LibraryLayout = () => (
         <Switch>
                     <Route path="/" component={AllMovieContainer} exact />
                     <Route path="/movie/:id" component={SingleMovieContainer} />
+                    <Route path="/schedule" component={ScheduleContainer} />
         </Switch> 
     </div>
 )

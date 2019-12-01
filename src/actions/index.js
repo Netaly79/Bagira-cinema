@@ -1,15 +1,8 @@
 import axios from 'axios';
-import { URL_MOVIE, SET_MOVIES, IS_LOADING, LOADING_ERROR, SET_FILTERED_MOVIES}  from '../constants';
+import { URL_MOVIE, SET_MOVIES, SET_FILTERED_MOVIES}  from '../constants';
+import {isLoading,loadingError} from './general';
 
 
-export const isLoading = () => ({
-    type: IS_LOADING, 
-
-});
-
-export const loadingError = () =>({
-    type: LOADING_ERROR
-});
 export const setMovies = ( movies) =>({
  type: SET_MOVIES, payload: movies
 });
