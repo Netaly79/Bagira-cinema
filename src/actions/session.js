@@ -1,18 +1,21 @@
 import axios from 'axios';
 import {isLoading,loadingError} from './general';
-import { URL_SESSION, SET_SESSION}  from '../constants';
+import { URL_SESSION, SET_SESSION,URL_ROOMS,SET_ROOMS}  from '../constants';
 
-export const setSession = (session) =>({
- type: SET_SESSION, payload: session
+export const setSessions = (sessions) =>({
+ type: SET_SESSION, payload: sessions
 });
-
-export const getSession = () =>{
+export const setRooms = (rooms) =>({
+    type: SET_ROOMS, payload: rooms
+   });
+export const getSessions = () =>{
     return (dispatch) => {
         dispatch(isLoading());
-        axios.get(URL_SESSION)
-        .then (({data}) => {
-            dispatch(setSession(data.session));
-            console.log(data);
+        Promise.all([axios.get (URL_SESSION),axios.get (URL_ROOMS)])
+        .then (([sessions,rooms]) => {
+           dispatch(setSessions(sessions.data.session));
+           dispatch(setRooms(rooms.data.rooms));
+            
         })
         .catch ((error) => {
             console.log(error);

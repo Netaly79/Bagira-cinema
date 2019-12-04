@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect}  from 'react-redux';
-import { Spin, Icon } from 'antd';
+
 
 import { LibraryLayout } from '../containers/LibraryLayout';
 //import {Route, Switch} from 'react-router-dom';
@@ -15,16 +15,18 @@ import { getMovies } from "../actions";
     }
 
     render (){
-        const {loading} = this.props;
-        
         return (
             <main>
-                {loading
-                ? <Spin indicator={<Icon type="loading-3-quarters" style={{ fontSize: 36 }} spin />} />
-                : <LibraryLayout />}
+                {/* {loading
+                ? <h1 className="ant-spin">Идет загрузка...</h1>
+                : */}
+                 <LibraryLayout />
+                {/* } */}
+
                  
             </main>
         );
+        
     }
 }
 
@@ -32,7 +34,6 @@ import { getMovies } from "../actions";
 const mapDispatchToProps= {
     getMovies
 };
-
 const mapStateToProps = (state) => ({
     loading:state.loading.loading
 });

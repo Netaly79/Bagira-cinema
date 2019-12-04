@@ -1,4 +1,5 @@
-import {SET_SESSION} from '../constants'
+import {SET_SESSION,SET_ROOMS} from '../constants'
+import { element } from 'prop-types';
 
 const InitialValues = {
     sessions: [],
@@ -29,11 +30,19 @@ export const SessionReducer = (state=InitialValues,action) =>{
                 acc[acc.length-1].push(item);
                 return acc;
             },[]);
-            console.log (dataOrdered);
             return {
                 ...state,
                 sessions:dataOrdered      
             };
+            case SET_ROOMS:
+                const updateSessions=state.sessions.map (item=>{
+                    return item.map(element=>({...element, room: action.payload.find(room=>room._id===element.room).name
+                    }))
+                });
+                
+                return {...state,
+                sessions: updateSessions
+                };
         default:
             return state;
     }

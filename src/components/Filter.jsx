@@ -120,7 +120,7 @@ class Filter extends React.Component{
     const mapStateToProps = (state) => ({
         movies:state.data.movies,
         genres:state.data.genres,
-        filteredMovies:state.filter.filteredMovies,
+        filteredMovies:state.data.filteredMovies,
         
        
     });

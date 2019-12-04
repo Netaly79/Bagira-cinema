@@ -13,10 +13,10 @@ export const Header = () => (
             <nav className="nav">
                 <Menu mode="horizontal" >
                     <Menu.Item key="films" className="filmMenuItem">
-                        <NavLink exact to="/" activeClassName="active"> <Icon type="global" />Фильмы</NavLink>
+                        <NavLink exact to="/"> <Icon type="global" />Фильмы</NavLink>
                     </Menu.Item>
                     <Menu.Item key="schedule">
-                        <NavLink to="/schedule" activeClassName="active"><Icon type="schedule" />Расписание</NavLink>
+                        <NavLink to="/schedule"><Icon type="schedule" />Расписание</NavLink>
                     </Menu.Item>
                     <Menu.Item key="about">
                         <Icon type="eye" />

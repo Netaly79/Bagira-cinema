@@ -1,4 +1,4 @@
-import {SET_MOVIES,LOADING_ERROR,IS_LOADING } from '../constants'
+import {SET_MOVIES,LOADING_ERROR,IS_LOADING, SET_SESSION } from '../constants'
 
 const InitialValues = {
     loading:false
@@ -12,6 +12,7 @@ export const Load= (state=InitialValues,action) =>{
                 loading:true
         };
         case "SET_MOVIES":
+        case "SET_SESSION":
         case "LOADING_ERROR":
                 return {
                     ...state,

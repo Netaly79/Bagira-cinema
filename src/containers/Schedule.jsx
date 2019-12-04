@@ -1,24 +1,64 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getSession}  from "../actions/session";
+import {getSessions}  from "../actions/session";
+import {FilmBox} from "../components/FilmBox";
+import {dateOptions} from "../constants";
+
+import { Spin, Icon } from 'antd';
+
 
 
 class Schedule extends React.Component{
 
     componentDidMount(){
-        this.props.getSession();
+        this.props.getSessions();
     }
+
+    getSessions=() => {
+        const {movies,sessions,rooms}=this.props;
+
+        const sessionData=movies.length&&sessions.length&&rooms.length ? sessions.map (item => {
+            return item.map(element=>({
+                ...element, 
+                room: rooms.find(room=>room._id===element.room).name,
+                movie:movies.find (movie=>movie._id===element.movie)
+            }))
+        }) : [];
+
+        return sessionData.map (item => {return item.filter (elem => elem.movie);
+        });
+    };
+    
+
     render () {
+        const {loading}=this.props;
+        if(loading)
+        return <Spin indicator={<Icon type="loading-3-quarters" style={{ fontSize: 36 }} spin />} />
+
         return (
-            <h3>schedule</h3>
+            <div className="schedule">
+                {
+                this.getSessions().map((item,i)=>(
+                    <div className="DateMovieBlock" key={i}>
+                     
+                        <h2 className="DateHeader">{new Date(item[0].date).toLocaleString("ru",dateOptions)}</h2>
+                        <FilmBox movieDate={item} />
+                    </div>
+                ))
+                
+                }
+            </div>
         );
     }
 }
 const mapDispatchtoProps={
-    getSession
+    getSessions
 };
 const mapStateToProps = (state) => ({
-    sessions:state.session.sessions
+    sessions:state.data.sessions,
+    loading:state.loading.loading,
+    movies:state.data.movies,
+    rooms:state.data.rooms
 });
 export const ScheduleContainer=connect(mapStateToProps, mapDispatchtoProps)(Schedule);

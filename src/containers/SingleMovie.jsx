@@ -1,11 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+
+
 class SingleMovie extends React.Component{
     state= {movie:{}};
+   
 
     componentDidMount(){
-        
+       
+        console.log ("singleProps",this.props);
         const {match,movies} = this.props;
         const movieId=match.params.id;
         const movie=movies.find(item => item._id===movieId);
@@ -14,6 +18,7 @@ class SingleMovie extends React.Component{
     }
     
     render (){
+        
       
         const {movie} =this.state;
         const actors = movie.actors ? movie.actors.join (', ').slice (0,-2) : "Хью Джекман и Ко";
@@ -21,8 +26,8 @@ class SingleMovie extends React.Component{
         const age = movie.age ? movie.age+"+" : "не ограничен";
         return (
       <div>
-          <h1 className="movie-title">{movie.title}</h1>
-          <div className="singleMovieContainer">
+          <h1 className="movie-title single-movie-title">{movie.title}</h1>
+          <div className="single-movie-container">
                 <div className="pictureBox">
                     <img className="movie-poster-small" src={movie.poster} alt="poster"></img>
                     <p>{country}.<br/>{movie.genre && movie.genre.join(",")}</p>
@@ -50,7 +55,9 @@ class SingleMovie extends React.Component{
     }
 }
 const mapStateToProps = (state) => ({
-    movies:state.data.movies
+    movies:state.data.movies,
+    loading:state.loading.loading
 });
+
 
 export const SingleMovieContainer = connect(mapStateToProps)(SingleMovie);
