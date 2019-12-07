@@ -1,5 +1,5 @@
-import {SET_SESSION,SET_ROOMS} from '../constants'
-import { element } from 'prop-types';
+import {SET_ROOMS} from '../constants'
+
 
 const InitialValues = {
     sessions: [],

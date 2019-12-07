@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 
+import {ModalBuying} from './ModalBuying';
+import { getTime } from '../library/functionLibrary';
 
 export const FilmSession = ({session}) => {
-    console.log ("session",session,session.movie);
+    const [showModal,setShow]=useState(false);
+
+    //console.log ("session",session,session.movie);
     const  room=session.room==="green"
             ? "зеленый"
             : "желтый";
@@ -11,29 +15,30 @@ export const FilmSession = ({session}) => {
     : "black";
     const roomColor=session.room;
 
-    const hour=new Date (session.date).getHours()<10
-        ? "0"+new Date (session.date).getHours()
-        : new Date (session.date).getHours();
-    const minute=new Date (session.date).getMinutes()<10
-        ? "0"+new Date (session.date).getMinutes()
-        : new Date (session.date).getMinutes();
-    const time=hour+":"+minute;
+    const time=getTime(session.date);
+    const handleClickBuyTicket= () => {
+        setShow(!showModal);
+    };
 
     return (
-    <div className="film-session">
-        <div className="film-info">
-            <img className="schedule-poster" src={session.movie.poster} alt="movie-poster"/>
-            <button className="buy-ticket-sched">Купить билет</button>
-        </div>
-        <div className="session-film-info">
-            <h3 className="session-film-title">{session.movie.title}</h3>
-            <div className="room" 
-            style={{backgroundColor:roomColor, color:printColor}}> Зал: {room} </div>
-            <div class="session-time">{time}</div>
-        </div>
-         
-        <div className="film-desc">
-            <p>{session.movie.description}</p>
-        </div> 
-    </div>
+        <React.Fragment>
+            <div className="film-session">
+                <div className="film-info">
+                    <img className="schedule-poster" src={session.movie.poster} alt="movie-poster"/>
+                    <button className="buy-ticket-sched" onClick={handleClickBuyTicket}>Купить билет</button>
+                </div>
+                <div className="session-film-info">
+                    <h3 className="session-film-title">{session.movie.title}</h3>
+                    <div className="room" 
+                    style={{backgroundColor:roomColor, color:printColor}}> Зал: {room} </div>
+                    <div className="session-time">{time}</div>
+                </div>
+                <div className="film-desc">
+                    <p>{session.movie.description}</p>
+                </div> 
+            </div>
+            {showModal&&<ModalBuying session={session} 
+            handleCloseModalBox={handleClickBuyTicket}
+            />}
+    </React.Fragment>
 )};

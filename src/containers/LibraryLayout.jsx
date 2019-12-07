@@ -9,6 +9,7 @@ import { Banner } from '../components/Banner';
 export const LibraryLayout = () => (
     
     <div className="library">
+        
         <Switch>
             <Route path="/" component={LibrarySidebar} exact />
             <Route path="/schedule" component={Banner} />

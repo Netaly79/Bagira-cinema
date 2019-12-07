@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {isLoading,loadingError} from './general';
+import {loadingError} from './general';
 import { URL_SESSION, SET_SESSION,URL_ROOMS,SET_ROOMS}  from '../constants';
 
 export const setSessions = (sessions) =>({
@@ -10,7 +10,7 @@ export const setRooms = (rooms) =>({
    });
 export const getSessions = () =>{
     return (dispatch) => {
-        dispatch(isLoading());
+        //dispatch(isLoading());
         Promise.all([axios.get (URL_SESSION),axios.get (URL_ROOMS)])
         .then (([sessions,rooms]) => {
            dispatch(setSessions(sessions.data.session));

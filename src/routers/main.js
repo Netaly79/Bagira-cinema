@@ -12,16 +12,19 @@ import { getMovies } from "../actions";
 
     componentDidMount() {
         this.props.getMovies();
+       
+        
     }
 
     render (){
+        const {loading}=this.props;
         return (
             <main>
-                {/* {loading
+                 {loading
                 ? <h1 className="ant-spin">Идет загрузка...</h1>
-                : */}
+                : 
                  <LibraryLayout />
-                {/* } */}
+                 } 
 
                  
             </main>
