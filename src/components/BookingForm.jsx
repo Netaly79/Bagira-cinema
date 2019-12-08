@@ -6,18 +6,19 @@ export const BookingForm = ({handleForm}) => {
 
     const handleChangeUserName=(event) =>
     {
-        console.log("event",event);
        setUserName(event.target.value);
     };
+
     const handleChangeEmail=(event) =>
     {
         setEmail(event.target.value);
     };
+
     const handleBookingButton = (event) => {
         event.preventDefault();
         handleForm({userName,email});
-
     };
+
     return (
         <form>
             <input className="userName" placeholder="Введите имя" value={userName} onChange={handleChangeUserName} />
@@ -25,4 +26,4 @@ export const BookingForm = ({handleForm}) => {
             <button type='submit' disabled={!(userName && email)} onClick={handleBookingButton}>Зарезервировать</button>
         </form>
     )
-}
+};

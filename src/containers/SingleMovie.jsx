@@ -6,21 +6,14 @@ import {Link} from 'react-router-dom';
 class SingleMovie extends React.Component{
     state= {movie:{}};
    
-
     componentDidMount(){
-       
-        console.log ("singleProps",this.props);
         const {match,movies} = this.props;
         const movieId=match.params.id;
         const movie=movies.find(item => item._id===movieId);
         this.setState({movie});
-
-console.log( "movie",{movie});
     }
     
     render (){
-        
-      
         const {movie} =this.state;
         const actors = movie.actors ? movie.actors.join (', ').slice (0,-2) : "Хью Джекман и Ко";
         const country = movie.country && movie.country.join(", ");
@@ -29,17 +22,17 @@ console.log( "movie",{movie});
       <div>
           <h1 className="movie-title single-movie-title">{movie.title}</h1>
           <div className="single-movie-container">
-                <div className="pictureBox">
+                <div className="picturebox">
                     <img className="movie-poster-small" src={movie.poster} alt="poster"></img>
                     <p>{country}.<br/>{movie.genre && movie.genre.join(",")}</p>
                    < div className="ticket">
                    <Link to={`/schedule/${movie._id}`} >
-                        <button className="buyTicket"></button>
-                        <p>Купить билет</p> </Link>
+                        <button className="buy-ticket"></button>
+                        <p className="buy-ticket-text">Купить билет</p> </Link>
                     </div>
                 </div>
-                <div className="descriptionBox">
-                    <p className="MovieDescription">{movie.description}</p>
+                <div className="description-box">
+                    <p className="movie-description">{movie.description}</p>
                     <hr />
                     <p className="info"><span>Актеры: </span>{actors}</p>
                     <p className="info"><span>Возраст: </span>{age}</p>
@@ -51,7 +44,6 @@ console.log( "movie",{movie});
                     </div>
                 </div>
           </div>
-          
       </div>
         );
     }

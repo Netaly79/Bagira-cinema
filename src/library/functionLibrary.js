@@ -1,5 +1,4 @@
 
-
 export const sortArray = (arr, el) => {
     return arr.sort((a,b) => {
         if (a[el]>b[el])
@@ -8,7 +7,6 @@ export const sortArray = (arr, el) => {
             return -1;
         return 0; 
     });
-
 }
 
 export const createRowsArray = (arr) => {
@@ -25,12 +23,12 @@ export const createRowsArray = (arr) => {
             }
             return rowArr;
         });
-    return update;
-}
-else{
-    return[...acc,[elem]];
-}
-}
+        return update;
+        }   
+        else{
+            return[...acc,[elem]];
+        }
+    }
 ,[])};
 
 export const getRandomInt=(min,max) => 

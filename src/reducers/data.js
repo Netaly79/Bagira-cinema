@@ -1,4 +1,3 @@
-//import {SET_MOVIES } from '../constants'
 
 const InitialValues = {
     movies: [],
@@ -32,7 +31,6 @@ export const DataReducer = (state=InitialValues,action) =>{
         };
 
         case "SET_FILTERED_MOVIES":
-        console.log ("data", action.payload);
             return {
                 ...state, 
                 filteredMovies: action.payload,

@@ -3,7 +3,7 @@ import React from "react";
 export const CinemaRoom =({space,handleBuyPlace}) => {
     return (
         <div className="room">
-            {space.map ((item,k) => {
+            { space.map ((item,k) => {
                 return <div key={k} className="row">
                     <div className="row-number">Ряд: {k+1}</div>
                     {
@@ -13,7 +13,7 @@ export const CinemaRoom =({space,handleBuyPlace}) => {
                                  className={`place-${element.booked?"taken":"free"} place`}
                                  onClick={()=>handleBuyPlace(element)}
                                  >
-                                    <span>{element.place}</span>
+                                <span>{element.place}</span>
                                 </div>
                             )
                         })
@@ -21,7 +21,6 @@ export const CinemaRoom =({space,handleBuyPlace}) => {
                     <div className="row-number">Ряд: {k+1}</div>
                 </div>
             })
-        
             }
         </div>
     )

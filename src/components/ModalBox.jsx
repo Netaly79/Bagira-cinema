@@ -36,7 +36,6 @@ export class ModalBox extends React.Component{
     };
 
     componentDidMount(){
-        console.log (this.props.sessionId);
         axios.get (`${URL_FREE_PLACE}?session=${this.props.session._id}`)
         .then (({data}) => {
             this.LoadingFinish();
@@ -49,7 +48,6 @@ export class ModalBox extends React.Component{
         }) 
     }
     handleBuyPlace = (data) => {
-        console.log ("data",data);
         if(!data.booked)
         this.setState({selectedPlace:data});
     };
@@ -58,7 +56,6 @@ export class ModalBox extends React.Component{
     };
 
     handleForm = ({userName,email}) => {
-        //console.log ("client", data)
         alert(`${userName}, желаем приятного просмотра!  Ваш билет ${this.state.selectedPlace.row} ряд ${this.state.selectedPlace.place}  место`);
     }
 
@@ -71,7 +68,8 @@ export class ModalBox extends React.Component{
                     {isLoading
                     ?<Spin indicator={<Icon type="loading-3-quarters" style={{ fontSize: 36 }} spin />} />
                     :<div>
-                        <TicketSelectBox  session={this.props.session}/></div>}
+                        <TicketSelectBox  session={this.props.session}/>
+                    </div>}
                         <CinemaRoom space={this.state.space} handleBuyPlace={this.handleBuyPlace}/>
                         {selectedPlace&&<div className="sel-place">
                             <h2>Вы выбрали: ряд {selectedPlace.row} место {selectedPlace.place}</h2>
@@ -81,12 +79,11 @@ export class ModalBox extends React.Component{
                                 :<div className="buy-ticket-sched buy" onClick={this.handleOpenBookingForm}
                                 >Забронировать билет</div>
                             }
-
                         </div>}
                         <span className="close-button" type="close" 
                         onClick={handleCloseModalBox}>X</span>
-                    </div>
+                </div>
             </div>
         )
     }
-}
+};

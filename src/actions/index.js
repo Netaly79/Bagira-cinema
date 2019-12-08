@@ -15,12 +15,11 @@ export const getMovies = () =>{
             dispatch(setMovies(data.movie));
         })
         .catch ((error) => {
-            console.log(error);
             dispatch(loadingError());
         }) 
-     }
-        
+     }     
 }
+
 export const setFilteredMovies = ( filteredMovies, filtered) =>({
     type: SET_FILTERED_MOVIES, payload: filteredMovies, filtered:filtered
    });

@@ -6,16 +6,17 @@ import { getTime } from '../library/functionLibrary';
 export const FilmSession = ({session}) => {
     const [showModal,setShow]=useState(false);
 
-    //console.log ("session",session,session.movie);
     const  room=session.room==="green"
             ? "зеленый"
             : "желтый";
-    const printColor=session.room==="green"
-    ? "white"
-    : "black";
-    const roomColor=session.room;
 
+    const printColor=session.room==="green"
+        ? "white"
+        : "black";
+
+    const roomColor=session.room;
     const time=getTime(session.date);
+
     const handleClickBuyTicket= () => {
         setShow(!showModal);
     };
@@ -37,8 +38,8 @@ export const FilmSession = ({session}) => {
                     <p>{session.movie.description}</p>
                 </div> 
             </div>
-            {showModal&&<ModalBuying session={session} 
-            handleCloseModalBox={handleClickBuyTicket}
+                { showModal&&<ModalBuying session={session} 
+                handleCloseModalBox={handleClickBuyTicket}
             />}
     </React.Fragment>
 )};

@@ -60,8 +60,7 @@ header {
 .library{
   display:flex;
   flex-wrap: nowrap;
-  height: 100%;
-  
+  height: 100%; 
 }
 .sidebar{
   flex-basis: 20%;
@@ -70,7 +69,6 @@ header {
   min-height: 80vh;
 }
 .films{
-  
   flex-grow: 1;
   background-color: rgb(247, 247, 247);
   display:flex;
@@ -78,7 +76,7 @@ header {
   justify-content: space-around;
   padding: 40px 0;
 }
-.Movie-Item{
+.movie-item{
   width:300px;
   height: 450px;
   border: 1px solid rgb(232, 241, 221);
@@ -100,28 +98,24 @@ header {
   text-align: center;
   font-size: 22px;
   margin:10px auto;
+  color:#ff9100;
 }
 .single-movie-title{
   color:#ff9100;
   margin: 20px;
   font-size:30px;
 }
-.bigdiv{
-  background-color: #ff9100;
-  width:200px;
-  height: 200px;
-}
 .single-movie-container{
   display:flex;
   justify-content: space-between ;
   margin: 40px;
 }
-.pictureBox{
+.picturebox{
   flex-basis: 20%;
   flex-shrink: 0;
   margin:20px;
 }
-.pictureBox > p {
+.picturebox > p {
   margin-top: 1em;
   text-align: center;
   width:100%;
@@ -129,7 +123,7 @@ header {
 .ticket{
   text-align: center;
 }
-.buyTicket {
+.buy-ticket {
   border-bottom: 2px solid orange;
   margin: 10px auto;
   height: 60px;
@@ -137,15 +131,18 @@ header {
   background-image: url("../images/ticket.jpg") ;
   cursor: pointer;
 }
-.buyTicket:hover{
+.buy-ticket:hover{
   color:black;
   background-color: #ffffff;
 }
-.descriptionBox{
+.buy-ticket-text{
+  color:black;
+}
+.description-box{
 flex-grow: 1;
   margin:20px;
 }
-.MovieDescription{
+.movie-description{
   font-size: 16px;
   text-align: justify;
   margin-bottom: 40px;
@@ -167,18 +164,18 @@ hr{
   margin: 0 auto;
 }
 /* FILTERS */
-.filterToTitle,
-.filterToGenre{
+.filter-to-title,
+.filter-to-genre{
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.FilterLabel{
+.filter-label{
   font-weight: bold;
   margin:40px auto 20px;
   font-size: 20px;
 }
-.Filter,
+.filter,
 .ant-select{
   margin:0 15px;
   font-size: 20px;
@@ -195,11 +192,11 @@ color:#ff9100;
 .schedule{
   width:100%;
 }
-.DateMovieBlock{
+.date-movie-block{
   margin:20px;
   box-shadow:11px 10px 84px 7px rgba(229,232,231,0.69); ;
 }
-.DateHeader{
+.date-header{
   font-size: 24px;
   font-weight: bold;
   font-style:italic;
@@ -239,7 +236,6 @@ color:#ff9100;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
 .film-desc{
   margin:20px;
@@ -258,7 +254,6 @@ color:#ff9100;
   margin-bottom: 70px; 
   font-family: 'Kelly Slab', cursive;
   font-size: 24px;
-
 }
 /* BANNER */
 .banner-container{
@@ -281,7 +276,7 @@ color:#ff9100;
 {
   font-family: 'Kelly Slab', cursive;
   font-size: 26px;
- margin: 10px 5px;
+  margin: 10px 5px;
   width:100%;
   text-align: center;
 }
@@ -295,7 +290,6 @@ color:#ff9100;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .modal-content{
   position: relative;
@@ -333,7 +327,6 @@ color:#ff9100;
 .row {
   display:flex;
   justify-content: space-between;
- 
 }
 .row-number{
   border-bottom:1px solid #ff9100;
@@ -351,7 +344,6 @@ color:#ff9100;
 .place-taken{
   background-color: tomato;
   cursor: default;
-  
 }
 .place-free{
   background-color: turquoise;
@@ -386,7 +378,6 @@ color:#ff9100;
   background-color:rgb(221, 240, 200);
   display: flex;
   align-items: center;
-
 }
 .footer-container > p{
   text-align: center;
