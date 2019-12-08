@@ -1,4 +1,4 @@
-import {SET_MOVIES,LOADING_ERROR,IS_LOADING, SET_SESSION } from '../constants'
+
 
 const InitialValues = {
     loading:false

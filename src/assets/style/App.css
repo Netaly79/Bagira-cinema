@@ -41,6 +41,7 @@ header {
 .anticon-user{
   font-size: 24px;
   padding-right: 30px;
+  color:transparent;
 }
 .ant-spin{
   position:absolute;

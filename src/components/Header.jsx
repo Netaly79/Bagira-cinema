@@ -18,14 +18,10 @@ export const Header = () => (
                     <Menu.Item key="schedule">
                         <NavLink to="/schedule"><Icon type="schedule" />Расписание</NavLink>
                     </Menu.Item>
-                    <Menu.Item key="about">
-                        <Icon type="eye" />
-                        Navigation Two
-                    </Menu.Item>
                 </Menu>
             </nav>
             <div className="user">
-            <Icon type="user"  />
+            {/* <Icon type="user"  /> */}
             </div>
         </div>
     </header>

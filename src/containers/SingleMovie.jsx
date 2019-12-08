@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {Link} from 'react-router-dom';
 
 
 class SingleMovie extends React.Component{
@@ -15,6 +15,7 @@ class SingleMovie extends React.Component{
         const movie=movies.find(item => item._id===movieId);
         this.setState({movie});
 
+console.log( "movie",{movie});
     }
     
     render (){
@@ -32,8 +33,9 @@ class SingleMovie extends React.Component{
                     <img className="movie-poster-small" src={movie.poster} alt="poster"></img>
                     <p>{country}.<br/>{movie.genre && movie.genre.join(",")}</p>
                    < div className="ticket">
+                   <Link to={`/schedule/${movie._id}`} >
                         <button className="buyTicket"></button>
-                        <p>Купить билет</p>
+                        <p>Купить билет</p> </Link>
                     </div>
                 </div>
                 <div className="descriptionBox">
