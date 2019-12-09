@@ -52,10 +52,11 @@ export class ModalBox extends React.Component{
         this.setState({selectedPlace:data});
     };
     handleOpenBookingForm = () => {
-        this.setState({showForm:true})
+        this.setState({showForm: true})
     };
 
     handleForm = ({userName,email}) => {
+        this.props.handleCloseModalBox();
         alert(`${userName}, желаем приятного просмотра!  Ваш билет ${this.state.selectedPlace.row} ряд ${this.state.selectedPlace.place}  место`);
     }
 
