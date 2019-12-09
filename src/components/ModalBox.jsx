@@ -71,7 +71,7 @@ export class ModalBox extends React.Component{
                     :<div>
                         <TicketSelectBox  session={this.props.session}/>
                     </div>}
-                        <CinemaRoom space={this.state.space} handleBuyPlace={this.handleBuyPlace}/>
+                        <CinemaRoom space={this.state.space} handleBuyPlace={this.handleBuyPlace} session={this.props.session}/>
                         {selectedPlace&&<div className="sel-place">
                             <h2>Вы выбрали: ряд {selectedPlace.row} место {selectedPlace.place}</h2>
                             {

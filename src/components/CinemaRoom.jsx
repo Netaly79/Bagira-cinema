@@ -1,8 +1,14 @@
 import React from "react";
 
-export const CinemaRoom =({space,handleBuyPlace}) => {
+export const CinemaRoom =({space,handleBuyPlace,session}) => {
+    const cost=session.costs;
     return (
         <div className="room">
+            <div className="legend">
+            <span className=" place-taken">Занято</span>
+            <span id="akcent"> Цена билета: {cost} грн.</span>
+            <span className="place-free">Свободно</span>
+        </div>
             { space.map ((item,k) => {
                 return <div key={k} className="row">
                     <div className="row-number">Ряд: {k+1}</div>

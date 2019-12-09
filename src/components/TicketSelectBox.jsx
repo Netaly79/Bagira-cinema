@@ -4,7 +4,6 @@ import {getDate,getTime} from "../library/functionLibrary"
 
 
 export const TicketSelectBox = ({session}) => {
-
     const  room=session.room==="green"
             ? "зеленый"
             : "желтый";
@@ -24,7 +23,6 @@ export const TicketSelectBox = ({session}) => {
                 <div className=" modal-session-time"
                 style={{backgroundColor:session.room, color:printColor}}>{datetime}</div>
             </div>
-            
         </div>
 )
 }
