@@ -4,26 +4,27 @@ import  {setFilteredMovies} from '../actions';
 import { Select } from 'antd';
 
 const { Option } = Select;
-let inputValue="";
-let selectValue="";
 
 class Filter extends React.Component{
+    state={
+        inputValue:'',
+        selectValue:""
+    };
    
     changeInputValue = (event) => {
-        const {value}=event.target;
+        const inputValue=event.target.value;
         const {movies}=this.props;
-        inputValue=value;
         
-        const twoFilters=inputValue.length>0&&selectValue.length>1;
-        const onlyInput=inputValue.length>0&&selectValue.length<1;
-        const onlySelect=inputValue.length<1&&selectValue.length>1;
-       
+        const twoFilters=inputValue.length>0&&this.state.selectValue.length>1;
+        const onlyInput=inputValue.length>0&&this.state.selectValue.length<1;
+        const onlySelect=inputValue.length<1&&this.state.selectValue.length>1;
+
         let filteredMovies=[];
         for (let i=0; i<movies.length; i++){
             if (twoFilters)
             {
                 if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase())
-                 && movies[i].genre.some(element => element.trim() === selectValue))
+                 && movies[i].genre.some(element => element.trim() === this.state.selectValue))
                    filteredMovies.push(movies[i]);
             }
             if (onlyInput)
@@ -33,34 +34,35 @@ class Filter extends React.Component{
             }
             if (onlySelect)
             {
-                if(movies[i].genre.some(element => element.trim() === selectValue))
+                if(movies[i].genre.some(element => element.trim() === this.state.selectValue))
                     filteredMovies.push(movies[i]);
             }
         }
-        const filtered=Boolean(inputValue||selectValue);
+        this.setState((state) => ({
+            inputValue: state.inputValue=inputValue
+          }));
+        const filtered=Boolean(inputValue||this.state.selectValue);
         this.props.setFilteredMovies(filteredMovies,filtered);
     }
      changeSelectValue=(value) =>{
-        if(value!=="")
-            selectValue=value;
-        else
-            selectValue='';
+          const selectValue=value;
+      
         const {movies}=this.props;
-        const twoFilters=inputValue.length>0&&selectValue.length>1;
-        const onlyInput=inputValue.length>0&&selectValue.length<1;
-        const onlySelect=inputValue.length<1&&selectValue.length>1;
+        const twoFilters=this.state.inputValue.length>0&&selectValue.length>1;
+        const onlyInput=this.state.inputValue.length>0&&selectValue.length<1;
+        const onlySelect=this.state.inputValue.length<1&&selectValue.length>1;
 
         let filteredMovies=[];
         for (let i=0; i<movies.length; i++){
             if (twoFilters)
             {
-                if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase())
+                if(movies[i].title.toLowerCase().includes(this.state.inputValue.toLowerCase())
                  && movies[i].genre.some(element => element.trim() === selectValue))
                     filteredMovies.push(movies[i]);
             }
             if (onlyInput)
             {
-                if(movies[i].title.toLowerCase().includes(inputValue.toLowerCase()))
+                if(movies[i].title.toLowerCase().includes(this.state.inputValue.toLowerCase()))
                     filteredMovies.push(movies[i]);
             }
             if (onlySelect)
@@ -69,11 +71,15 @@ class Filter extends React.Component{
                     filteredMovies.push(movies[i]);
             }
         }
-        const filtered=Boolean(inputValue||selectValue)
+        this.setState((state) => ({
+            selectValue: state.selectValue=selectValue
+          }));
+        const filtered=Boolean(this.state.inputValue||selectValue)
         this.props.setFilteredMovies(filteredMovies,filtered);
       }
 
     render (){
+
         return(
             <React.Fragment>
                 <div className="filter-to-title">
@@ -89,7 +95,6 @@ class Filter extends React.Component{
                 <div className="filter-to-genre">
                      <p className="filter-label">Поиск по жанру</p>
                     <Select class="filter" onChange={this.changeSelectValue} >
-                    <Option value="" key='zero'>  все жанры</Option>
                         {this.props.genres.map(item =>  <Option value={item} key={item}>{item} </Option>)}
                     </Select> 
                 </div>

@@ -16,7 +16,7 @@ export const LibraryLayout = () => (
         </Switch>
         <Switch>
             <Route path="/" component={AllMovieContainer} exact />
-            <Route path="/movie/:id" component={SingleMovieContainer} />
+            <Route path="/movie/:id" component={SingleMovieContainer}  />
             <Route path="/schedule" component={ScheduleContainer} />
         </Switch> 
     </div>
