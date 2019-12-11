@@ -1,0 +1,32 @@
+.films-info{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+.movie-card{
+    width: 10%;
+    margin:20px;
+    min-width: 70px; 
+    border: 1px solid #ddd;
+}
+
+.movie-card > .movie-item > .movie-poster{
+    height: 100px;
+    object-fit: contain;
+}
+.movie-card > .movie-item {
+    border:none;
+}
+.movie-card > .movie-item >.movie-title{
+    overflow: hidden;
+    color:green;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.remove-button{
+    margin-bottom:10px;
+    text-align: center;
+    width: 100%;
+}
