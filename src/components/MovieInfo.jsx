@@ -10,7 +10,7 @@ export const MovieInfo = ({movie,handleRemove}) => {
     return (
         <div className="movie-card">
             <MovieItem movie={movie}/>
-            <button className="remove-button" onClick={handleButtonRemove}> Remove</button>
+            <button className="remove-button" onClick={handleButtonRemove}> Remove film</button>
         </div>
     )
     
