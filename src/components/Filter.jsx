@@ -42,6 +42,7 @@ class Filter extends React.Component{
             inputValue: state.inputValue=inputValue
           }));
         const filtered=Boolean(inputValue||this.state.selectValue);
+        console.log ("filter",this.props.setFilteredMovies);
         this.props.setFilteredMovies(filteredMovies,filtered);
     }
      changeSelectValue=(value) =>{

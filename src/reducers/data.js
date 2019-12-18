@@ -36,6 +36,12 @@ export const DataReducer = (state=InitialValues,action) =>{
                 filteredMovies: action.payload,
                 filtered:action.filtered
         };
+        case "SET_ADMINED_MOVIES":
+            console.log("admin");
+            return {
+                ...state, 
+                movies: action.payload
+        };
 
         case "SET_SESSION":
             const sortedData=action.payload.sort((a,b)=>{

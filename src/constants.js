@@ -9,6 +9,7 @@ export const SET_MOVIES ="SET_MOVIES";
 export const IS_LOADING ="IS_LOADING";
 export const LOADING_ERROR ="LOADING_ERROR";
 export const SET_FILTERED_MOVIES="SET_FILTERED_MOVIES";
+export const SET_ADMINED_MOVIES="SET_ADMINED_MOVIES";
 
 export const SET_SESSION ="SET_SESSION";
 export const SET_ROOMS ="SET_ROOMS";

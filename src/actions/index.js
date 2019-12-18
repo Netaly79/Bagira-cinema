@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL_MOVIE, SET_MOVIES, SET_FILTERED_MOVIES}  from '../constants';
+import { URL_MOVIE, SET_MOVIES, SET_FILTERED_MOVIES,SET_ADMINED_MOVIES}  from '../constants';
 import {isLoading,loadingError} from './general';
 
 
@@ -23,3 +23,7 @@ export const getMovies = () =>{
 export const setFilteredMovies = ( filteredMovies, filtered) =>({
     type: SET_FILTERED_MOVIES, payload: filteredMovies, filtered:filtered
    });
+
+export const setAdminedMovies = (adminedMovies) => ({
+    type: SET_ADMINED_MOVIES, payload:adminedMovies
+});
